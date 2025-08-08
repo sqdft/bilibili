@@ -9,7 +9,8 @@ document.getElementById('btnExtract').addEventListener('click', async () => {
   resultDiv.innerHTML = '正在提取封面，请稍等...';
 
   try {
-    const backendBaseURL = 'http://106.53.46.106:5000';  // 替换成你的公网IP和端口
+    const backendBaseURL = '';  // 代理转发，所以这里不写域名和端口
+
     const res = await fetch(`${backendBaseURL}/api/cover?bvid=${encodeURIComponent(bvid)}`);
 
     if (!res.ok) throw new Error('服务器响应异常');
@@ -17,7 +18,6 @@ document.getElementById('btnExtract').addEventListener('click', async () => {
     const data = await res.json();
 
     if (data.cover_url) {
-      // 如果你没有实现图片代理，直接用后端返回的cover_url
       const imgUrl = data.cover_url;
 
       resultDiv.innerHTML = `
