@@ -1,6 +1,7 @@
 document.getElementById('btnExtract').addEventListener('click', async () => {
   const bvid = document.getElementById('bvidInput').value.trim();
   const resultDiv = document.getElementById('result');
+
   if (!bvid) {
     resultDiv.innerHTML = `<div class="error">请输入有效的BV号或视频链接</div>`;
     return;
@@ -9,7 +10,8 @@ document.getElementById('btnExtract').addEventListener('click', async () => {
   resultDiv.innerHTML = '正在提取封面，请稍等...';
 
   try {
-    const backendBaseURL = '';  // 代理转发，所以这里不写域名和端口
+    // 这里直接写你的公网后端 API 地址
+    const backendBaseURL = 'http://106.53.46.106:5000';
 
     const res = await fetch(`${backendBaseURL}/api/cover?bvid=${encodeURIComponent(bvid)}`);
 
@@ -18,7 +20,7 @@ document.getElementById('btnExtract').addEventListener('click', async () => {
     const data = await res.json();
 
     if (data.cover_url) {
-      const imgUrl = data.cover_url;
+      const imgUrl = `${backendBaseURL}/proxy-image?url=${encodeURIComponent(data.cover_url)}`;
 
       resultDiv.innerHTML = `
         <div class="video-info">
