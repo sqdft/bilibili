@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B站封面提取工具</title>
+  <style>
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      background: #f7f8fa;
+      margin: 0; padding: 0;
+    }
+    .container {
+      max-width: 720px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 30px 40px;
+    }
+    h1 {
+      color: #e91e63;
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #d81b60;
+    }
+    .video-info {
+      margin-top: 30px;
+    }
+    .video-info h2 {
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: #333;
+    }
+    .video-info p {
+      margin: 0;
+      font-size: 14px;
+      color: #888;
+    }
+    .cover {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .cover img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .download-btn {
+      margin-top: 15px;
+    }
+    .error {
+      color: red;
+      font-size: 15px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎬 B站视频封面提取工具</h1>
+
+    <input type="text" id="bvidInput" placeholder="请输入 BV号、AV号或视频链接" />
+    <button id="btnExtract">🎯 提取封面</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
